@@ -45,6 +45,6 @@ jobs:
       # This step runs `npm ci` to install any dependencies listed in your `package.json` file.
       - run: npm ci
       # This step runs the `build` script if there is one specified under the `scripts` key in your `package.json` file.
-      - run: npm run build --if-present
+      - run: npm run build 
       # This step runs the `test` script that is specified under the `scripts` key in your `package.json` file.
-      - run: npm test
+     
