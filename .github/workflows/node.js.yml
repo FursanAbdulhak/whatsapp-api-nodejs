@@ -28,13 +28,6 @@ jobs:
         node-version: [14.x, 16.x, 18.x, 20.x]
 #
     steps:
-       - uses: actions/checkout@v3
-       - name: Use Node.js
-         uses: actions/setup-node@v3
-         with:
-         node-version: '18.x'
-       - name: Install dependencies
-         run: npm ci
       # This step uses the `actions/checkout` action to download a copy of your repository on the runner.
       - uses: actions/checkout@v3
       # This step uses the `actions/setup-node` action to set up Node.js for each version indicated by the `matrix.node-version` key above.
@@ -45,6 +38,6 @@ jobs:
       # This step runs `npm ci` to install any dependencies listed in your `package.json` file.
       - run: npm ci
       # This step runs the `build` script if there is one specified under the `scripts` key in your `package.json` file.
-      - run: npm run build 
+      - run: npm run build --if-present
       # This step runs the `test` script that is specified under the `scripts` key in your `package.json` file.
-     
+      - run: npm test
